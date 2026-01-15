@@ -22,8 +22,8 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 | 06 | Cloud Services | completed |
 | 07 | System Integration | completed |
 | 08 | Vocabulary | completed |
-| 09 | Power Mode | in_progress |
-| 10 | Polish | pending |
+| 09 | Power Mode | completed |
+| 10 | Polish | in_progress |
 
 ## Completed Work
 
@@ -87,8 +87,17 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 - JSON import/export for dictionary backup
 - Integration with transcription pipeline
 
-## Current: Phase 9 - Power Mode
-- Context-aware app/URL detection
+### Phase 9: Power Mode
+- PowerModeConfig model with per-app settings
+- ActiveWindow model for window info
+- ActiveWindowService (X11 via xdotool, Wayland via kdotool/D-Bus)
+- PowerModeManager singleton with:
+  - Config storage in SQLite
+  - Active window monitoring via GLib.timeout
+  - Auto-detection and config switching
+  - Predefined configs for common apps (Slack, VS Code, Firefox, etc.)
+
+## Current: Phase 10 - Polish & Packaging
 
 ## Directory Structure
 ```

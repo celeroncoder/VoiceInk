@@ -11,6 +11,8 @@ from .clipboard_manager import ClipboardManager
 from .notification_service import NotificationService, NotificationType
 from .autostart_manager import AutostartManager
 from .vocabulary_service import VocabularyService
+from .active_window import ActiveWindowService
+from .power_mode_manager import PowerModeManager
 
 __all__ = [
     "LocalTranscriptionService",
@@ -29,4 +31,6 @@ __all__ = [
     "NotificationType",
     "AutostartManager",
     "VocabularyService",
+    "ActiveWindowService",
+    "PowerModeManager",
 ]
