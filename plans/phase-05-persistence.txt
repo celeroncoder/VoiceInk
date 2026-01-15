@@ -1,0 +1,47 @@
+PHASE 05: PERSISTENCE
+STATUS: pending
+PRIORITY: high
+DEPENDS: phase-04
+
+OBJECTIVE
+Implement data storage for history and settings
+
+TASKS
+- Create SQLite database for transcription history
+- Define Transcription model (id, text, duration, timestamp, model)
+- Implement TranscriptionRepository CRUD operations
+- Create history list view with Gtk.ListView
+- Add search/filter for history
+- Implement GSettings schema for preferences
+- Store settings: model path, audio device, UI prefs
+- Use XDG paths: ~/.local/share/voiceink/
+
+SOURCE REFERENCE
+VoiceInk/Models/Transcription.swift -> src/models/transcription.py
+VoiceInk/Services/TranscriptionHistoryService.swift -> src/services/history_service.py
+
+DATABASE SCHEMA
+transcriptions:
+  id: INTEGER PRIMARY KEY
+  text: TEXT NOT NULL
+  raw_text: TEXT
+  duration: REAL
+  created_at: TIMESTAMP
+  model_name: TEXT
+  service_type: TEXT (local|cloud)
+  word_count: INTEGER
+
+GSETTINGS KEYS
+whisper-model-path: string
+audio-device-id: string
+auto-copy: boolean
+language: string
+theme: string (system|light|dark)
+
+PATHS
+data: ~/.local/share/voiceink/
+config: ~/.config/voiceink/
+cache: ~/.cache/voiceink/
+
+OUTPUT
+Persistent history, searchable, with settings storage

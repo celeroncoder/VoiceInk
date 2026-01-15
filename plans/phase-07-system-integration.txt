@@ -1,0 +1,46 @@
+PHASE 07: SYSTEM INTEGRATION
+STATUS: pending
+PRIORITY: high
+DEPENDS: phase-04
+
+OBJECTIVE
+Desktop integration: tray, hotkeys, notifications, autostart
+
+TASKS
+- Implement system tray with libappindicator3
+- Add tray menu: show/hide, record, quit
+- Global hotkeys via D-Bus portal (Wayland) + X11 fallback
+- Implement XDG autostart (.desktop in ~/.config/autostart/)
+- Add desktop notifications with Gio.Notification
+- Clipboard operations with Gtk.Clipboard
+- Paste-at-cursor using xdotool/ydotool
+
+SOURCE REFERENCE
+VoiceInk/MenuBarManager.swift -> src/services/tray_manager.py
+VoiceInk/HotkeyManager.swift -> src/services/hotkey_manager.py
+VoiceInk/ClipboardManager.swift -> src/services/clipboard_manager.py
+VoiceInk/CursorPaster.swift -> src/services/cursor_paster.py
+
+HOTKEY APPROACH
+wayland:
+  org.freedesktop.portal.GlobalShortcuts (XDG Portal)
+x11:
+  python-xlib with XGrabKey
+detection:
+  GDK_BACKEND env var or Gdk.Display type check
+
+TRAY
+libappindicator3 for Ubuntu (AppIndicator)
+StatusNotifierItem D-Bus protocol
+
+AUTOSTART
+~/.config/autostart/org.voiceink.VoiceInk.desktop
+X-GNOME-Autostart-enabled=true
+
+PASTE
+xdotool type --clearmodifiers "text" (X11)
+ydotool type "text" (Wayland)
+wtype "text" (Wayland alt)
+
+OUTPUT
+Background-capable app with hotkeys and system tray

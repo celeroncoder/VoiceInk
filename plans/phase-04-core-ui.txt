@@ -1,0 +1,48 @@
+PHASE 04: CORE UI
+STATUS: pending
+PRIORITY: critical
+DEPENDS: phase-01, phase-02, phase-03
+
+OBJECTIVE
+Build main application UI with GTK4/libadwaita
+
+TASKS
+- Create MainWindow with Adw.ApplicationWindow
+- Build HeaderBar with record button and menu
+- Create RecordingView with waveform/level indicator
+- Create TranscriptionView with text display
+- Add status indicators (recording, processing, ready)
+- Implement copy-to-clipboard button
+- Add preferences window skeleton
+- Apply GNOME HIG styling
+
+SOURCE REFERENCE
+VoiceInk/Views/ContentView.swift -> src/views/main_window.py
+VoiceInk/Views/Recorder/MiniRecorderPanel.swift -> src/views/recording_view.py
+VoiceInk/Views/TranscriptionHistoryView.swift -> src/views/history_view.py
+
+GTK WIDGETS
+Adw.ApplicationWindow - main window
+Adw.HeaderBar - top bar
+Adw.StatusPage - empty states
+Gtk.Button - record control
+Gtk.LevelBar - audio meter
+Gtk.TextView - transcription display
+Adw.ToastOverlay - notifications
+
+LAYOUT
++----------------------------------+
+| HeaderBar [Menu] [Record] [Prefs]|
++----------------------------------+
+|  [Audio Level Meter]             |
+|  ================================|
+|                                  |
+|  Transcription Text Area         |
+|                                  |
+|                                  |
++----------------------------------+
+|  [Copy] [Clear] Status: Ready    |
++----------------------------------+
+
+OUTPUT
+Functional UI that records, transcribes, displays text

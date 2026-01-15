@@ -1,0 +1,37 @@
+PHASE 02: WHISPER INTEGRATION
+STATUS: pending
+PRIORITY: critical
+DEPENDS: phase-01
+
+OBJECTIVE
+Compile whisper.cpp for Linux and create Python bindings
+
+TASKS
+- Clone whisper.cpp repo or use existing vendored copy
+- Compile libwhisper.so with cmake (CPU + CUDA optional)
+- Create ctypes wrapper: src/whisper/bindings.py
+- Implement WhisperContext class mirroring LibWhisper.swift
+- Implement WhisperState manager class
+- Add model download utility (fetch from huggingface)
+- Create model storage path: ~/.local/share/voiceink/models/
+- Test transcription with sample WAV file
+
+SOURCE REFERENCE
+VoiceInk/Whisper/LibWhisper.swift -> src/whisper/bindings.py
+VoiceInk/Whisper/WhisperState.swift -> src/whisper/state.py
+VoiceInk/Services/LocalTranscriptionService.swift -> src/services/local_transcription.py
+
+WHISPER BUILD
+cmake -B build -DBUILD_SHARED_LIBS=ON
+cmake --build build --config Release
+cp build/libwhisper.so ~/.local/lib/
+
+KEY FUNCTIONS
+whisper_init_from_file
+whisper_full
+whisper_full_n_segments
+whisper_full_get_segment_text
+whisper_free
+
+OUTPUT
+Python module that loads whisper model and transcribes audio numpy array

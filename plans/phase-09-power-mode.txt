@@ -1,0 +1,48 @@
+PHASE 09: POWER MODE
+STATUS: pending
+PRIORITY: low
+DEPENDS: phase-06, phase-07
+
+OBJECTIVE
+Context-aware settings based on active application
+
+TASKS
+- Detect active window via D-Bus (GNOME Shell)
+- Get window class/name using Wnck or Bamf
+- Create PowerModeConfig model
+- Build per-app configuration UI
+- Auto-switch transcription settings by app
+- Browser URL detection (limited on Linux)
+- Store configs in SQLite
+
+SOURCE REFERENCE
+VoiceInk/PowerMode/PowerModeConfig.swift -> src/models/power_mode.py
+VoiceInk/PowerMode/ActiveWindowService.swift -> src/services/active_window.py
+VoiceInk/PowerMode/PowerModeManager.swift -> src/services/power_mode_manager.py
+
+ACTIVE WINDOW DETECTION
+gnome_shell:
+  org.gnome.Shell.Eval D-Bus (get focused window)
+wnck:
+  Wnck.Screen.get_default().get_active_window()
+bamf:
+  org.ayatana.bamf D-Bus interface
+xdotool:
+  xdotool getactivewindow getwindowname (X11 fallback)
+
+POWERMODE CONFIG
+app_identifier: string (wm_class)
+display_name: string
+transcription_model: string
+ai_enhancement_enabled: boolean
+ai_model: string
+custom_prompt: string
+icon_emoji: string
+
+LIMITATIONS
+- Wayland restricts window info access
+- Browser URL detection unreliable without extension
+- May need GNOME Shell extension for full functionality
+
+OUTPUT
+Auto-switching profiles based on focused application

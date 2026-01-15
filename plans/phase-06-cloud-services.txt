@@ -1,0 +1,48 @@
+PHASE 06: CLOUD SERVICES
+STATUS: pending
+PRIORITY: medium
+DEPENDS: phase-04, phase-05
+
+OBJECTIVE
+Port cloud transcription and AI enhancement APIs
+
+TASKS
+- Create base TranscriptionService protocol/ABC
+- Implement OpenAI Whisper API client
+- Implement Deepgram API client
+- Implement Groq API client
+- Create AI enhancement service (GPT, Claude, etc)
+- Add API key management with libsecret
+- Create service registry for switching backends
+- Add network error handling and retries
+- Implement async/await with GLib.idle_add for UI updates
+
+SOURCE REFERENCE
+VoiceInk/Services/CloudTranscription/*.swift -> src/services/cloud/
+VoiceInk/Services/AIEnhancement/*.swift -> src/services/ai_enhancement.py
+VoiceInk/Services/TranscriptionServiceRegistry.swift -> src/services/service_registry.py
+
+SERVICES TO PORT
+transcription:
+  - OpenAITranscriptionService
+  - DeepgramTranscriptionService
+  - GroqTranscriptionService
+  - MistralTranscriptionService
+  - CustomOpenAIService (user endpoint)
+
+ai_enhancement:
+  - OpenAI GPT
+  - Anthropic Claude
+  - Ollama (local)
+  - Custom endpoint
+
+LIBRARIES
+httpx (async HTTP)
+keyring (libsecret wrapper)
+
+API KEY STORAGE
+Use Secret Service API via keyring library
+Schema: org.voiceink.credentials
+
+OUTPUT
+Multiple cloud transcription options with secure API key storage

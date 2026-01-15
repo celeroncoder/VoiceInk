@@ -1,0 +1,57 @@
+PHASE 10: POLISH & PACKAGING
+STATUS: pending
+PRIORITY: low
+DEPENDS: all previous phases
+
+OBJECTIVE
+Production readiness, packaging, distribution
+
+TASKS
+- Error handling and user-friendly messages
+- Loading states and progress indicators
+- Keyboard navigation and accessibility (ATK)
+- Dark/light theme support (Adw.StyleManager)
+- Create Flatpak manifest
+- Create Debian package (.deb)
+- Create AppImage
+- Add CI/CD with GitHub Actions
+- Write user documentation
+- Create app icon set (symbolic + full color)
+- Add about dialog with version/credits
+- Performance profiling and optimization
+- Unit and integration tests
+
+PACKAGING
+
+flatpak:
+  org.voiceink.VoiceInk.yml manifest
+  runtime: org.gnome.Platform//46
+  sdk: org.gnome.Sdk//46
+
+debian:
+  debian/control
+  debian/rules
+  debian/changelog
+  build with dpkg-buildpackage
+
+appimage:
+  use linuxdeploy + linuxdeploy-plugin-gtk
+
+snap:
+  snapcraft.yaml (optional)
+
+CI/CD
+- Build on ubuntu-latest
+- Run tests with pytest
+- Build Flatpak bundle
+- Build .deb package
+- Create GitHub Release
+
+ACCESSIBILITY
+- All buttons have labels
+- Keyboard shortcuts documented
+- Screen reader compatible
+- High contrast support
+
+OUTPUT
+Distributable packages for Ubuntu and other distros

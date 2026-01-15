@@ -1,0 +1,40 @@
+PHASE 01: PROJECT SETUP
+STATUS: pending
+PRIORITY: critical
+DEPENDS: none
+
+OBJECTIVE
+Initialize GTK4/libadwaita Python project with build system
+
+TASKS
+- Create project structure: src/, data/, resources/, tests/
+- Setup meson.build for GNOME-style build
+- Create main.py entry point with Gtk.Application subclass
+- Setup pyproject.toml with dependencies
+- Create .desktop file for app launcher
+- Create MANIFEST.in and setup packaging
+- Initialize git, add .gitignore for Python/GTK
+
+DEPENDENCIES
+python3 >= 3.10
+pygobject >= 3.42
+gtk4 >= 4.10
+libadwaita >= 1.4
+
+FILES TO CREATE
+src/
+  __init__.py
+  main.py
+  application.py
+  window.py
+data/
+  org.voiceink.VoiceInk.desktop
+  org.voiceink.VoiceInk.gschema.xml
+resources/
+  voiceink.gresource.xml
+  icons/
+meson.build
+pyproject.toml
+
+OUTPUT
+Runnable empty GTK4 window with app icon

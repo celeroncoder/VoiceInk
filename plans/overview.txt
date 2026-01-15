@@ -1,0 +1,93 @@
+VOICEINK LINUX PORT - OVERVIEW
+TARGET: Ubuntu 24.04 LTS (GNOME 46, GTK 4)
+LANGUAGE: Python 3.10+
+UI: GTK 4 + libadwaita
+
+PHASE DEPENDENCY GRAPH
+01 Project Setup
+ └─> 02 Whisper Integration
+ └─> 03 Audio Recording
+      └─> 04 Core UI
+           └─> 05 Persistence
+           │    └─> 06 Cloud Services
+           │    └─> 08 Vocabulary
+           └─> 07 System Integration
+                └─> 09 Power Mode
+                     └─> 10 Polish
+
+CRITICAL PATH
+01 -> 03 -> 04 -> 07 (minimum viable product)
+Add 02 for local transcription
+Add 05 for history
+Add 06 for cloud APIs
+
+DIRECTORY STRUCTURE
+voiceink-linux/
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── application.py
+│   ├── window.py
+│   ├── audio/
+│   │   ├── recorder.py
+│   │   └── device_manager.py
+│   ├── whisper/
+│   │   ├── bindings.py
+│   │   └── state.py
+│   ├── services/
+│   │   ├── local_transcription.py
+│   │   ├── history_service.py
+│   │   ├── vocabulary_service.py
+│   │   ├── hotkey_manager.py
+│   │   ├── clipboard_manager.py
+│   │   ├── tray_manager.py
+│   │   └── cloud/
+│   ├── models/
+│   │   ├── transcription.py
+│   │   ├── vocabulary.py
+│   │   └── power_mode.py
+│   └── views/
+│       ├── main_window.py
+│       ├── recording_view.py
+│       ├── history_view.py
+│       └── preferences.py
+├── data/
+│   ├── org.voiceink.VoiceInk.desktop
+│   └── org.voiceink.VoiceInk.gschema.xml
+├── resources/
+│   └── icons/
+├── tests/
+├── meson.build
+└── pyproject.toml
+
+KEY DEPENDENCIES
+pygobject >= 3.42
+gtk4 >= 4.10
+libadwaita >= 1.4
+numpy
+sounddevice
+httpx
+keyring
+
+MACOS -> LINUX MAPPING
+SwiftUI -> GTK4 + libadwaita
+CoreAudio -> PipeWire/PulseAudio (sounddevice)
+NSPasteboard -> Gtk.Clipboard
+NSEvent -> XDG GlobalShortcuts Portal
+MenuBarExtra -> AppIndicator3
+UserDefaults -> GSettings
+SwiftData -> SQLite
+Keychain -> libsecret
+
+ESTIMATED EFFORT (hours)
+Phase 01: 4
+Phase 02: 12
+Phase 03: 8
+Phase 04: 16
+Phase 05: 8
+Phase 06: 12
+Phase 07: 16
+Phase 08: 6
+Phase 09: 10
+Phase 10: 16
+TOTAL: ~108 hours

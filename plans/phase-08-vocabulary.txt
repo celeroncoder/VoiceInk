@@ -1,0 +1,48 @@
+PHASE 08: VOCABULARY & REPLACEMENTS
+STATUS: pending
+PRIORITY: medium
+DEPENDS: phase-05
+
+OBJECTIVE
+Custom vocabulary and text replacement system
+
+TASKS
+- Create VocabularyWord model and storage
+- Create WordReplacement model (find -> replace)
+- Build vocabulary management UI (add/edit/delete)
+- Implement replacement engine (post-transcription)
+- Add import/export (JSON format)
+- Regex support for advanced replacements
+- Case-sensitive/insensitive options
+
+SOURCE REFERENCE
+VoiceInk/Models/VocabularyWord.swift -> src/models/vocabulary.py
+VoiceInk/Models/WordReplacement.swift -> src/models/replacement.py
+VoiceInk/Services/CustomVocabularyService.swift -> src/services/vocabulary_service.py
+VoiceInk/Services/DictionaryImportExportService.swift -> src/services/dictionary_io.py
+
+DATABASE TABLES
+vocabulary_words:
+  id: INTEGER PRIMARY KEY
+  word: TEXT NOT NULL
+  pronunciation: TEXT
+  category: TEXT
+  created_at: TIMESTAMP
+
+word_replacements:
+  id: INTEGER PRIMARY KEY
+  find_text: TEXT NOT NULL
+  replace_text: TEXT NOT NULL
+  is_regex: BOOLEAN
+  case_sensitive: BOOLEAN
+  enabled: BOOLEAN
+  order_index: INTEGER
+
+REPLACEMENT PIPELINE
+1. Get raw transcription
+2. Apply vocabulary hints (if whisper supports)
+3. Apply word replacements in order
+4. Return processed text
+
+OUTPUT
+Customizable text processing with import/export

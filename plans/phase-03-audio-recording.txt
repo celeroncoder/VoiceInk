@@ -1,0 +1,45 @@
+PHASE 03: AUDIO RECORDING
+STATUS: pending
+PRIORITY: critical
+DEPENDS: phase-01
+
+OBJECTIVE
+Implement audio capture using PipeWire/PulseAudio
+
+TASKS
+- Install sounddevice or pyaudio for recording
+- Create AudioRecorder class with start/stop/pause
+- Implement device enumeration (list input devices)
+- Record to numpy array (16kHz mono float32 for whisper)
+- Add real-time audio level metering
+- Implement WAV file export
+- Handle device hot-plug events
+- Create fallback chain: PipeWire -> PulseAudio -> ALSA
+
+SOURCE REFERENCE
+VoiceInk/CoreAudioRecorder.swift -> src/audio/recorder.py
+VoiceInk/Services/AudioDeviceManager.swift -> src/audio/device_manager.py
+VoiceInk/Recorder.swift -> src/audio/recording_session.py
+
+LIBRARIES
+sounddevice (recommended - uses PortAudio)
+numpy
+scipy (for resampling if needed)
+
+AUDIO FORMAT
+sample_rate: 16000
+channels: 1
+dtype: float32
+
+KEY CLASSES
+AudioRecorder
+  - devices: list[AudioDevice]
+  - current_device: AudioDevice
+  - is_recording: bool
+  - audio_level: float
+  - start() -> None
+  - stop() -> numpy.ndarray
+  - get_devices() -> list[AudioDevice]
+
+OUTPUT
+Record audio from mic, return numpy array ready for whisper
