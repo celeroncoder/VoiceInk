@@ -1,5 +1,5 @@
 PHASE 06: CLOUD SERVICES
-STATUS: pending
+STATUS: completed
 PRIORITY: medium
 DEPENDS: phase-04, phase-05
 

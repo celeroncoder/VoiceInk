@@ -19,8 +19,8 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 | 03 | Audio Recording | completed |
 | 04 | Core UI | completed |
 | 05 | Persistence | completed |
-| 06 | Cloud Services | in_progress |
-| 07 | System Integration | pending |
+| 06 | Cloud Services | completed |
+| 07 | System Integration | in_progress |
 | 08 | Vocabulary | pending |
 | 09 | Power Mode | pending |
 | 10 | Polish | pending |
@@ -64,9 +64,17 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 - GSettings schema for app preferences
 - XDG-compliant paths (~/.local/share/voiceink/)
 
-## Current: Phase 6 - Cloud Services
-- Cloud transcription APIs (OpenAI, Deepgram, Groq)
-- AI enhancement service
+### Phase 6: Cloud Services
+- Base TranscriptionService ABC for all providers
+- OpenAI Whisper API client
+- Deepgram API client
+- Groq API client
+- AI enhancement service (OpenAI, Anthropic, Groq, Ollama)
+- CredentialManager with keyring (libsecret)
+- TranscriptionServiceRegistry for backend switching
+
+## Current: Phase 7 - System Integration
+- Global hotkeys, system tray, notifications
 
 ## Directory Structure
 ```
