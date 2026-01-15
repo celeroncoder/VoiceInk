@@ -1,0 +1,13 @@
+voiceink (0.1.0-1) unstable; urgency=medium
+
+  * Initial release for Linux
+  * Local transcription with whisper.cpp
+  * Cloud transcription (OpenAI, Deepgram, Groq)
+  * AI enhancement support
+  * System tray integration
+  * Global hotkey support
+  * Transcription history with search
+  * Vocabulary/word replacement
+  * Power Mode per-app profiles
+
+ -- VoiceInk Team <contact@tryvoiceink.com>  Wed, 15 Jan 2025 12:00:00 +0000

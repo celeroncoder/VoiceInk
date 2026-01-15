@@ -23,7 +23,7 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 | 07 | System Integration | completed |
 | 08 | Vocabulary | completed |
 | 09 | Power Mode | completed |
-| 10 | Polish | in_progress |
+| 10 | Polish | completed |
 
 ## Completed Work
 
@@ -97,7 +97,29 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
   - Auto-detection and config switching
   - Predefined configs for common apps (Slack, VS Code, Firefox, etc.)
 
-## Current: Phase 10 - Polish & Packaging
+### Phase 10: Polish & Packaging
+- Flatpak manifest (org.voiceink.VoiceInk.yml)
+  - GNOME Platform 46 runtime
+  - whisper.cpp build module
+  - Python dependencies bundled
+- Debian packaging (debian/*)
+  - control, rules, changelog, copyright
+  - dpkg-buildpackage ready
+- AppImage build script (scripts/build-appimage.sh)
+  - linuxdeploy + GTK plugin
+  - Self-contained executable
+- GitHub Actions CI/CD (.github/workflows/linux-ci.yml)
+  - Test on ubuntu-24.04
+  - Build .deb and Flatpak
+  - Automatic releases on tag
+- Unit tests (tests/)
+  - Model tests
+  - Audio utility tests
+  - Service tests
+
+## Migration Complete
+
+All 10 phases completed. The VoiceInk Linux port is ready for testing and distribution.
 
 ## Directory Structure
 ```

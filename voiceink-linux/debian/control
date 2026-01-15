@@ -1,0 +1,47 @@
+Source: voiceink
+Section: sound
+Priority: optional
+Maintainer: VoiceInk Team <contact@tryvoiceink.com>
+Build-Depends: debhelper-compat (= 13),
+               meson,
+               ninja-build,
+               python3,
+               python3-gi,
+               gir1.2-gtk-4.0,
+               gir1.2-adw-1,
+               libadwaita-1-dev,
+               libgtk-4-dev
+Standards-Version: 4.6.0
+Homepage: https://tryvoiceink.com
+Vcs-Git: https://github.com/celeroncoder/VoiceInk.git
+Rules-Requires-Root: no
+
+Package: voiceink
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         python3,
+         python3-gi,
+         python3-numpy,
+         python3-httpx,
+         python3-keyring,
+         gir1.2-gtk-4.0,
+         gir1.2-adw-1,
+         gir1.2-appindicator3-0.1,
+         libwhisper1 | whisper-cpp,
+         ffmpeg,
+         xdotool | wtype,
+         libsecret-1-0
+Recommends: pulseaudio | pipewire-pulse
+Description: Voice-to-text transcription app
+ VoiceInk provides fast, accurate voice-to-text transcription
+ using local AI (whisper.cpp) or cloud services.
+ .
+ Features:
+  - Local transcription with whisper.cpp
+  - Cloud transcription (OpenAI, Deepgram, Groq)
+  - AI text enhancement
+  - System tray integration
+  - Global hotkeys
+  - Transcription history
+  - Per-app Power Mode profiles
