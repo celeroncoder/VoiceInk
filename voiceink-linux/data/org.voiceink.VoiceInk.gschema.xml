@@ -61,6 +61,19 @@
       <description>Copy transcription to clipboard</description>
     </key>
 
+    <!-- History -->
+    <key name="history-retention-days" type="i">
+      <default>30</default>
+      <summary>History retention</summary>
+      <description>Number of days to keep transcription history</description>
+    </key>
+
+    <key name="save-audio-files" type="b">
+      <default>false</default>
+      <summary>Save audio files</summary>
+      <description>Save audio recordings alongside transcriptions</description>
+    </key>
+
     <!-- Window state -->
     <key name="window-width" type="i">
       <default>800</default>
