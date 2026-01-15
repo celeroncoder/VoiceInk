@@ -20,8 +20,8 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 | 04 | Core UI | completed |
 | 05 | Persistence | completed |
 | 06 | Cloud Services | completed |
-| 07 | System Integration | in_progress |
-| 08 | Vocabulary | pending |
+| 07 | System Integration | completed |
+| 08 | Vocabulary | in_progress |
 | 09 | Power Mode | pending |
 | 10 | Polish | pending |
 
@@ -73,8 +73,15 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 - CredentialManager with keyring (libsecret)
 - TranscriptionServiceRegistry for backend switching
 
-## Current: Phase 7 - System Integration
-- Global hotkeys, system tray, notifications
+### Phase 7: System Integration
+- TrayManager with AppIndicator3 (system tray)
+- HotkeyManager (Wayland XDG Portal + X11 keybinder)
+- ClipboardManager with paste-at-cursor (xdotool/wtype/ydotool)
+- NotificationService with Gio.Notification
+- AutostartManager (XDG autostart)
+
+## Current: Phase 8 - Vocabulary
+- Custom vocabulary and word replacements
 
 ## Directory Structure
 ```
