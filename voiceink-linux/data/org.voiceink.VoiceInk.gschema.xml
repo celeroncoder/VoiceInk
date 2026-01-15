@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="voiceink">
+  <schema id="org.voiceink.VoiceInk" path="/org/voiceink/VoiceInk/">
+
+    <!-- General -->
+    <key name="first-run" type="b">
+      <default>true</default>
+      <summary>First run</summary>
+      <description>Whether this is the first time the application has been run</description>
+    </key>
+
+    <!-- Audio -->
+    <key name="audio-device" type="s">
+      <default>''</default>
+      <summary>Audio input device</summary>
+      <description>The audio input device to use for recording</description>
+    </key>
+
+    <key name="sample-rate" type="i">
+      <default>16000</default>
+      <summary>Sample rate</summary>
+      <description>Audio sample rate in Hz</description>
+    </key>
+
+    <!-- Transcription -->
+    <key name="transcription-model" type="s">
+      <default>'base'</default>
+      <summary>Whisper model</summary>
+      <description>The Whisper model to use for transcription</description>
+    </key>
+
+    <key name="transcription-language" type="s">
+      <default>'auto'</default>
+      <summary>Language</summary>
+      <description>Language for transcription (auto for automatic detection)</description>
+    </key>
+
+    <!-- AI Enhancement -->
+    <key name="ai-enhancement-enabled" type="b">
+      <default>false</default>
+      <summary>Enable AI enhancement</summary>
+      <description>Whether to enhance transcriptions with AI</description>
+    </key>
+
+    <key name="ai-provider" type="s">
+      <default>'openai'</default>
+      <summary>AI provider</summary>
+      <description>The AI provider for text enhancement</description>
+    </key>
+
+    <!-- Behavior -->
+    <key name="auto-paste" type="b">
+      <default>true</default>
+      <summary>Auto paste</summary>
+      <description>Automatically paste transcription after recording</description>
+    </key>
+
+    <key name="copy-to-clipboard" type="b">
+      <default>true</default>
+      <summary>Copy to clipboard</summary>
+      <description>Copy transcription to clipboard</description>
+    </key>
+
+    <!-- Window state -->
+    <key name="window-width" type="i">
+      <default>800</default>
+      <summary>Window width</summary>
+    </key>
+
+    <key name="window-height" type="i">
+      <default>600</default>
+      <summary>Window height</summary>
+    </key>
+
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Window maximized</summary>
+    </key>
+
+  </schema>
+</schemalist>

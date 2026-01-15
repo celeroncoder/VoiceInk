@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=VoiceInk
+Comment=Voice to text transcription powered by Whisper
+Exec=voiceink
+Icon=org.voiceink.VoiceInk
+Terminal=false
+Type=Application
+Categories=AudioVideo;Audio;Utility;
+Keywords=voice;transcription;whisper;speech;text;dictation;
+StartupNotify=true
