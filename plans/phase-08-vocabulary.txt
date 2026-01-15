@@ -1,5 +1,5 @@
 PHASE 08: VOCABULARY & REPLACEMENTS
-STATUS: pending
+STATUS: completed
 PRIORITY: medium
 DEPENDS: phase-05
 

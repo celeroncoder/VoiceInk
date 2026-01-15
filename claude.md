@@ -21,8 +21,8 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 | 05 | Persistence | completed |
 | 06 | Cloud Services | completed |
 | 07 | System Integration | completed |
-| 08 | Vocabulary | in_progress |
-| 09 | Power Mode | pending |
+| 08 | Vocabulary | completed |
+| 09 | Power Mode | in_progress |
 | 10 | Polish | pending |
 
 ## Completed Work
@@ -80,8 +80,15 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 - NotificationService with Gio.Notification
 - AutostartManager (XDG autostart)
 
-## Current: Phase 8 - Vocabulary
-- Custom vocabulary and word replacements
+### Phase 8: Vocabulary
+- VocabularyWord and WordReplacement models
+- VocabularyService with CRUD operations
+- Word replacement engine (regex + case options)
+- JSON import/export for dictionary backup
+- Integration with transcription pipeline
+
+## Current: Phase 9 - Power Mode
+- Context-aware app/URL detection
 
 ## Directory Structure
 ```

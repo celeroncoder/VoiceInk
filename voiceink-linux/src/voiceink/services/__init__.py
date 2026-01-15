@@ -10,6 +10,7 @@ from .hotkey_manager import HotkeyManager, Hotkey, DisplayServer
 from .clipboard_manager import ClipboardManager
 from .notification_service import NotificationService, NotificationType
 from .autostart_manager import AutostartManager
+from .vocabulary_service import VocabularyService
 
 __all__ = [
     "LocalTranscriptionService",
@@ -27,4 +28,5 @@ __all__ = [
     "NotificationService",
     "NotificationType",
     "AutostartManager",
+    "VocabularyService",
 ]
