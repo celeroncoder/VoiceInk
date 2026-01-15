@@ -17,8 +17,8 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 | 01 | Project Setup | completed |
 | 02 | Whisper Integration | completed |
 | 03 | Audio Recording | completed |
-| 04 | Core UI | in_progress |
-| 05 | Persistence | pending |
+| 04 | Core UI | completed |
+| 05 | Persistence | in_progress |
 | 06 | Cloud Services | pending |
 | 07 | System Integration | pending |
 | 08 | Vocabulary | pending |
@@ -48,11 +48,17 @@ Porting VoiceInk (macOS voice-to-text app) to Ubuntu 24.04 using GTK4/libadwaita
 - Automatic resampling to 16kHz for Whisper
 - WAV file export/import
 
-## Current: Phase 4 - Core UI
-- Recording view with waveform
-- Transcription display
-- Device selector
-- Model selector
+### Phase 4: Core UI
+- RecordingView with level meter and duration timer
+- TranscriptionView with copy/clear buttons
+- PreferencesWindow (model, audio, AI settings)
+- Full window integration with recording/transcription flow
+- Toast notifications, status bar
+- GNOME HIG styling
+
+## Current: Phase 5 - Persistence
+- SQLite database for transcription history
+- Settings storage
 
 ## Directory Structure
 ```
